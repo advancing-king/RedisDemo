@@ -1,0 +1,26 @@
+用户提交除了文本信息之外有时候还会上传一张照片等
+
+一般表单提交所形成的请求结果是以&符号拼接的name-value对，这样对于典型的基于文本的表单提交足够满足要求
+但是对于传送二进制数据，如上传图片就显得力不从心了。
+multipart格式的数据会将一个表单拆分为多个部分，每个部分对应一个输入域。
+在一般的表单输入域中，它所对应的部分中会放置文本型数据，但是如果上传文件的话，它所对应的部分可以是二进制
+-----WebkitFormBoundaryqgkaBn8.......
+Content-Dispositon:form-data; name="username"
+-----WebkitFormBoundaryqgkaBn8.......
+Content-Dispositon:form-data; name="profilePicture";filename="me.jpg"
+Content-Type: image/jpeg 
+从上面可以看出在这个multipart请求中，可以看出profilePicture除了其他内容外还有自己的Content-Type头，表名是一个jpeg图片。
+尽管multipart请求看起来很复杂，不过springmvc处理他们却很容易。在处理multipart请求之前，我们必须配置一个multipart解析器,
+通过它告诉DispatcherServlet该如何读取multipart请求
+
+1.配置multipart解析器
+DispatcherServlet本身并没有实现任何解析multipart请求数据的功能，
+将该任务交给了spring中MultipartResolver策略接口的实现.
+spring内置了两种resolver:
+1.1.CommonsMultipartResolver:使用jakarta Commons FileUpload 解析multipart请求
+1.2 StandardServletMultipartResolver:依赖于Servlet3.0对multipart请求的支持(始于spring3.1)
+后者为优选方案，因为使用Servlet提供的功能支持，不需要依赖其他项目，如果我们需要将应用部署到servlet3.0之前的容器中
+，或者spring3.1之前的版本就可能需要前者了，
+前者需要commons-fileupload-1.1.1.jar
+
+commons-io-1.3.2.jar两个jar包的支持 

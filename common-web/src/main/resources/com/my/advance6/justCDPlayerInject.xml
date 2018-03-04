@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context  
+    					http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="musicPlayer" class="com.my.advance6.MusicPlayer">
+		<property name="name" value="音乐播放器"></property>
+		<property name="price" value="100.00"></property>
+		<property name="list">
+			<list>
+				<value>音乐</value>
+				<value>网络</value>
+			</list>
+		</property>
+		<property name="type" value="免费"></property>
+	</bean>
+</beans>

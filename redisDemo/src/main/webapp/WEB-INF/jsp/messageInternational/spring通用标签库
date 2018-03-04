@@ -1,0 +1,14 @@
+spring通用的标签库
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+
+prefix可以是任意的
+<s:bind></s:bind> 将绑定属性的状态导出到一个名为status的页面作用域属性中，与<s:path>组合使用获取绑定属性的值
+<s:escapeBody></s:escapeBody> 将标签中的内容进行html 和/或 javaScript转义
+<s:hasBindErrors></s:hasBindErrors> 根据指定模型对象(在请求属性中)是否有绑定错误，有条件的渲染内容
+<s:htmlEscape></s:htmlEscape>为当前页面设置默认的html转义值
+<s:message></s:message>根据给定的编码获取信息，然后要么进行渲染（默认），要么将其设置为页面作用域，请求作用域、会话作用域或应用作用域的变量(使用var 和scope属性实现)
+<s:nestedPath></s:nestedPath>设置嵌入式的path,用于<s:bind>中
+<s:theme></s:theme>根据给定的编码获取主题信息，然后要么进行渲染(默认行为),要么将其设置为页面作用域，请求作用域、会话作用域或应用作用域的变量(使用var 和scope属性实现)
+<s:transform></s:transform>使用命令对象的属性编辑器转换命令对象中不包含的属性
+<s:url></s:url>创建相对于上下文的url,支持uri模板变量以及html/xml/js转义，可以渲染url(默认行为),也可以将其设置为页面作用域，请求作用域、会话作用域或应用作用域的变量(使用var 和scope属性实现)
+<s:eval></s:eval>计算符合spring表达式的语言spEL语法的某个表达式的值，然后要么进行渲染（默认行为）,也可以将其设置为页面作用域，请求作用域、会话作用域或应用作用域的变量(使用var 和scope属性实现)

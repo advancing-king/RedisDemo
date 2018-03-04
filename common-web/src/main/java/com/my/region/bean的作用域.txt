@@ -1,0 +1,4 @@
+1.单例(singleton) 整个应用中，只创建一个bean的实例 
+2.原型(Prototype)每次注入或者通过上下文获取的时候都会创建新的bean实例
+3.会话(Session)在web应用中，为没个会话创建一个bean实例
+4.请求(Request)在Web应用中，为每个请求创建一个bean实例

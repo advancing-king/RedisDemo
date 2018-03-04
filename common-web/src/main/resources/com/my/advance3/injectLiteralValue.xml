@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context  
+    					http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="injectBean3" class="com.my.advance3.InjectBean">
+		<constructor-arg value="wang" ></constructor-arg>
+		<constructor-arg value="23" ></constructor-arg>
+		<!-- 将List设置为null -->
+		<!-- <constructor-arg><null/></constructor-arg> -->
+		<constructor-arg>
+		<!-- constructor-arg的子元素有array,bean,list,map,set等 -->
+			<list>
+				<value>abc</value>
+				<value>123</value>
+				<value>rt1</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="cinjectBean2" class="com.my.advance3.InjectBean2">
+		<constructor-arg value="wang" ></constructor-arg>
+		<constructor-arg value="23" ></constructor-arg>
+		<!-- 将List设置为null -->
+		<!-- <constructor-arg><null/></constructor-arg> -->
+		<constructor-arg>
+		<!-- constructor-arg的子元素有array,bean,list,map,set等 -->
+			<list>
+				<value>abc</value>
+				<value>123</value>
+				<value>rt1</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="cinjectBean3" class="com.my.advance3.InjectBean3">
+		<constructor-arg value="wang" ></constructor-arg>
+		<constructor-arg value="23" ></constructor-arg>
+		<!-- 将List设置为null -->
+		<!-- <constructor-arg><null/></constructor-arg> -->
+		<constructor-arg>
+		<!-- constructor-arg的子元素有array,bean,list,map,set等 -->
+			<list>
+				<value>abc</value>
+				<value>123</value>
+				<value>rt1</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="containInjectBeans" class="com.my.advance3.ContainInjectBeans">
+		<constructor-arg>
+			<list>
+				<!-- 当list中装的不是基本类型，而是定义的类，那么用使用ref标签，在bean属性中引用注入好的bean的id -->
+				<ref bean="injectBean3"/>
+				<ref bean="cinjectBean2"/>
+				<ref bean="cinjectBean3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context  
+    					http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 使用import标签导入配置 -->
+	<import resource="justCDPlayerInject.xml" />
+	<import resource="cdInject.xml" />
+	
+<!-- 我们还可以将配置类直接导入进来采用bean注入的方式进行组合 -->
+</beans>

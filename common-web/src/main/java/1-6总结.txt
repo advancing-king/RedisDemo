@@ -1,0 +1,4 @@
+1-6讲述了spring中装配bean的3种方式
+1.自动化配置，使用@Component注解，然后使用<component-scan>扫描注解来达到注入bean的效果
+2.javaConfig配置 @Configuration不能少
+3.xml配置<bean>标签

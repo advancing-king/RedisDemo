@@ -1,0 +1,4 @@
+ 要在springmvc中使用基于java的配置,我们需要告诉DispatcherServlet和ContextLoaderListener使用AnnotationConfigWebApplicationContext,
+它是WebApplicationContext的一个实现类，它会加载java配置类,而不是使用xml
+要实现这种配置,我们可以设置contextClass上下文参数以及DispatcherServlet的初始化参数
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context  
+    					http://www.springframework.org/schema/context/spring-context.xsd
+    					http://www.springframework.org/schema/util
+    					http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="injectBean" class="com.my.advance4.InjectBean">
+		<!-- property元素为属性的setter方法所提供的功能与constructor-arg元素构造器所提供的功能是一样的 -->
+		<property name="name" value="wangchaoqian"></property>
+		<property name="title" value="霸王条款"></property>
+		<property name="age" value="24"></property>
+		<property name="list">
+			<list>
+				<value>123</value>
+				<value>www</value>
+				<value>zxd</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="injectBean2" class="com.my.advance4.InjectBean2">
+	</bean>
+	
+	<bean id="injectBean3" class="com.my.advance4.InjectBean3">
+	</bean>
+	
+	<bean id="containInjectBeans" class="com.my.advance4.ContainInjectBeans">
+		<property name="list">
+			<list>
+				<ref bean="injectBean"/>
+				<ref bean="injectBean2"/>
+				<ref bean="injectBean3"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- xmlns:util="http://www.springframework.org/schema/util" 使用util-命名空间 可以不使用 porperty 的子元素list,
+	utils-命名空间中的元素有
+	util:constant 引用某个类型的public static域,并将其暴露为bean
+	util:list 创建一个util.List类型的bean,其中包含值或引用
+	util:map 创建一个util.Map类型的bean,其中包含值或引用
+	util:properties util.Properties类型的bean,其中包含值或引用
+	util:set util.Set类型的bean,其中包含值或引用-->
+		<util:list id="list">
+			<ref bean="injectBean"/>
+			<ref bean="injectBean2"/>
+			<ref bean="injectBean3"/>
+		</util:list>
+</beans> 

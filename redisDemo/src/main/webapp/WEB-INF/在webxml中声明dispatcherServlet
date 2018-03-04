@@ -1,0 +1,69 @@
+如果要将应用部署到servlet3.0容器中，那么spring提供了多种方式来注册servlet、filter、listener，而不必创建web.xml文件。
+但是如果不想采取上述方案，也可以。
+假设你需要将应用部署到不支持servlet3.0的容器中(或者你只希望使用web.xml) 那么我们需要按照传统的方式通过web.xml 配置springMVC
+
+在web.xml中声明DispathcerServlet
+在典型的spring mvc应用中，我们会需要DispatcherServlet 和ContextLoaderListener。
+AbstractAnnotationConfigDispatcherServletInitializer会自动注册他们,
+如果要在web.xml中注册的话，那就需要我们自己来完成这项任务了。
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+  <display-name>Archetype Created Web Application</display-name>
+  
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<!-- 设置根上下文配置文件位置 -->
+  	<param-value>classpath:root-context.xml</param-value>
+  </context-param>
+  
+  <!-- 注册 ContextLoaderListener-->
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!-- 注册DispatcherServlet -->
+  <servlet>
+  	<servlet-name>springMVC</servlet-name>
+  	<servlet-class>
+  		org.springframework.web.servlet.DispatcherServlet
+  	</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <!-- 将DispatcherServlet映射到/ -->
+  <servlet-mapping>
+  	<servlet-name>springMVC</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+上面是按照传统的方式搭建了DispatcherServlet和ContextLoaderListener
+DispatcherServlet和ContextLoaderListener各自都会加载一个spring应用上下文,
+上下文参数contextConfigLocation指定了一个xml文件地址
+这个根文件定义了根应用上下文,他会被ContextLoaderListener加载.
+DispatcherServlet会根据servlet-name找到一个文件，并且基于该文件加载应用上下文。
+servletName叫springMVC，因此dispatcherservlet会从/WEB-INF/springMVC-context.xml文件中加载其应用上下文
+！如果希望指定dispatcherservlet配置文件位置的话，那么可以在Servlet上指定一个contextConfigLocation初始化参数.
+如下会从类路径下寻找servlet-context.xml配置文件加载bean
+<servlet>
+  	<servlet-name>springMVC</servlet-name>
+  	<servlet-class>
+  		org.springframework.web.servlet.DispatcherServlet
+  	</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  	<!-- 添加的， -->
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:servlet-context.xml</param-value>
+  	</init-param>
+  </servlet>
+  
+  
+ 当然，上面阐述的是如何让DispatcherServlet和ContextLoaderListener从xml中加载各自的应用上下文。
+ 但是我们更倾向于使用java配置而不是xml配置.
+ 因此，我们需要让springmvc 启动时，从带有@Configuration注解的类上加载配置
+ 
+ 要在springmvc中使用基于java的配置,我们需要告诉DispatcherServlet和ContextLoaderListener使用AnnotationConfigWebApplicationContext,
+它是WebApplicationContext的一个实现类，它会加载java配置类,而不是使用xml
+要实现这种配置,我们可以设置contextClass上下文参数以及DispatcherServlet的初始化参数

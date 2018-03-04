@@ -1,0 +1,242 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+	<!-- 相当于包名 -->
+  <groupId>com.my.advance</groupId>
+  <!-- 相当于工程名 -->
+  <artifactId>common-web</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>common-web</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.3.8.RELEASE</spring.version>
+    <thymeleaf.version>3.0.6.RELEASE</thymeleaf.version>
+    <spring.security>4.2.3.RELEASE</spring.security>
+  </properties>
+
+  <dependencies>
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-beans</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context-support</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc-portlet</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-websocket</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-web</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-aop</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-aspects</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-expression</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-instrument</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-instrument-tomcat</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jms</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-messaging</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+    
+    
+    <dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	 <dependency>  
+         <groupId>org.thymeleaf</groupId>  
+         <artifactId>thymeleaf</artifactId>  
+         <version>${thymeleaf.version}</version>  
+     </dependency> 
+     <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring3 -->
+	<dependency>
+	    <groupId>org.thymeleaf</groupId>
+	    <artifactId>thymeleaf-spring4</artifactId>
+	    <version>${thymeleaf.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>1.3.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.5</version>
+	</dependency>
+	
+	<!-- 安全验证框架spring-security,类路径下至少要包含core和config这两个模块  -->		
+	<!-- 提供spring security基本库 -->
+	<dependency>  
+	    <groupId>org.springframework.security</groupId>  
+	    <artifactId>spring-security-core</artifactId>  
+	    <version>${spring.security}</version>  
+	</dependency>  
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+	<!-- 包含通过xml和java配置spring security的功能支持 -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-config</artifactId>
+	    <version>${spring.security}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+	<!-- spring security的jsp标签库 -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-taglibs</artifactId>
+	    <version>${spring.security}</version>
+	</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+	
+	<!-- 提供了spring security基于Filter的web安全性支持 -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-web</artifactId>
+	    <version>${spring.security}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-ldap -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-ldap</artifactId>
+	    <version>${spring.security}</version>
+	</dependency>
+		
+	<!--spring security分了11个模块 
+		1.ACL 支持通过访问控制列表 access control list acl 为域对象提供安全性
+		2.切面 aspects 当使用spring security注解时，会使用基于Aspectj的切面而不是使用标准的spring aop
+		3.CAS client 提供与jasig的中心认证服务进行集成的功能
+		4.配置 Config 包 含通过xml和java配置spring security的功能支持
+		5.Core 提供spring security基本库 
+		6.加密 Cryptography 提供加密和密码编码的功能
+		7.LDAP 支持基于LDAP进行认证
+		8.OpenID 支持使用OpenID进行集中式认证
+		9.Remoting 提供了对spring remoting的支持
+		10.标签库taglib spring security的JSP标签库
+		11.Web 提供了spring security基于Filter的web安全性支持
+	  -->
+	  
+	  <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1.2</version>
+		</dependency>
+			  
+			  
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.40</version>
+		</dependency>
+				
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.6</version>
+	</dependency>
+	<dependency> 
+		<groupId>log4j</groupId> 
+		<artifactId>log4j</artifactId> 
+		<version>1.2.17</version> 
+	</dependency> 
+	
+	<!-- ehcache与spring-context-support一起使用 -->
+	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+	<dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache</artifactId>
+	    <version>2.10.4</version>
+	</dependency>
+		
+  </dependencies>
+  
+  
+</project>

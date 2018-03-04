@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context  
+    					http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--这里声明了一个很简单的bean，创建这个bean通过class属性来指定，并且使用全类名,
+	如果没有声明id将会默认以    全类名#0其中#0是一种计数的方式,如果再声明一个同样的，id将会是全类名#1,以此类推  -->
+	<bean class="com.my.advance2.InjectBean"></bean>
+	
+	<!-- 借助id我们可以更方便引用bean -->
+	<bean class="com.my.advance2.InjectBean" id="injectBean"></bean>
+	
+	<!-- 将上面id为injectBean注入到ContainInjectBean中 -->
+	<!-- 构造器注入  constructor-arg标签 -->
+	<bean class="com.my.advance2.ContainInjectBean" id="containInjectBean">
+		<constructor-arg ref="injectBean"></constructor-arg>
+	</bean>
+	
+	
+</beans>

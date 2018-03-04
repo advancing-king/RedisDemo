@@ -1,0 +1,15 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<p><sf:checkbox  />渲染成一个html<input>标签，其中 type属性设置为checkbox</p>
+<p><sf:checkboxes  />渲染成多个html<input>标签，其中 type属性设置为checkbox</p>
+<p><sf:errors  />在html<span>中渲染输入域的错误</p>
+<p><sf:form  />渲染成一个html<form>标签，并且为其内部标签暴露绑定路径，用于数据绑定</p>
+<p><sf:hidden />渲染成一个html<input>标签，其中 type属性设置为hidden</p>
+<p><sf:input  />渲染成一个html<input>标签，其中 type属性设置为text</p>
+<p><sf:label  />渲染成一个html<label>标签</p>
+<p><sf:option  />渲染成一个html<option>标签，其selected属性根据所绑定的值进行设置</p>
+<p><sf:options  />按照绑定的集合、数组或map,渲染成一个html<option>标签的列表</p>
+<p><sf:password  />渲染成一个html<input>标签，其中 type属性设置为password</p>
+<p><sf:radiobutton  />渲染成一个html<input>标签，其中 type属性设置为radio</p>
+<p><sf:radiobuttons  />渲染成多个html<input>标签，其中 type属性设置为radio</p>
+<p><sf:select  />渲染成一个html<select>标签</p>
+<p><sf:textarea  />渲染成一个html<textarea>标签</p>
